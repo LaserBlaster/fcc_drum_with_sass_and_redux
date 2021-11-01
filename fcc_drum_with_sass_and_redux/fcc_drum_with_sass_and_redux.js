@@ -382,7 +382,7 @@ class DrumMachine extends React.Component {
             <div id="drum-machine" className={this.state.drumBody} /*class="container" style={this.state.mainContainer}*/ > 
                 <div class={this.state.bigGrid}>
                     <div class={this.state.bigGridItem1}>
-                        <div id="buttons" class="grid-container" >
+                        <div id="buttons" class="key-grid-container" >
                             <div class="item1 drum-pad" id={this.state.qValue} >
                                 <audio class="clip" id="Q" src={this.state.qLink}></audio>
                                 Q
@@ -391,7 +391,7 @@ class DrumMachine extends React.Component {
                                 <audio class="clip" id="W" src={this.state.wLink}></audio>  
                                 W                            
                             </div>
-                            <div class="item3 drum-pad" id={this.state.eValue}>
+                            <div class="item3 drum-pad" id={this.state.eValue}>1
                                 <audio class="clip" id="E" src={this.state.eLink}></audio>        
                                 E                      
                             </div>
@@ -422,7 +422,7 @@ class DrumMachine extends React.Component {
                         </div>
                     </div>
                     <div class={this.state.bigGridItem2}>
-                        <div id="controls" class="grid-container2">   
+                        <div id="controls" class="controls-grid-container">   
                             <div id="powerSection" class="grid2-item1" style={{backgroundColor: this.state.color}}>
                                 <h2 id="powerLabel" style={{backgroundColor: this.state.color}}>Power</h2>
                                 <div id="powerButton" class={this.state.powerClass} />                                       
