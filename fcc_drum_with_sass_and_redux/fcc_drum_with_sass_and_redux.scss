@@ -1,0 +1,396 @@
+$keyGridCellHeight : 6em;
+$keyGridCellWidth : 6em;
+$keyGridContainerHeight: 26em;
+$keyGridContainerWidth: 26em;
+
+@function repeater($numOfRepeats, $valueToRepeat){
+    $list: "";
+    @for $i from 1 through $numOfRepeats {
+        $list: $list + " " + $valueToRepeat;
+    }
+    @return unquote($list);
+}
+
+p {
+    font-size: 2em;
+    text-align: center;
+    color: red;
+}
+h2 {
+    font-size: 1.5em;
+    background-color:green;
+    text-align: left;
+    line-height: 1.7em;
+}
+li {
+    font-size: 1em;
+    color: white;
+    background-color: black;
+    border: 0.1 black;
+    margin: 0em;
+}
+ul {
+    background-color: black;
+    color: black;
+    padding: 0em;
+}
+/*
+span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+*/
+/*left container */
+.grid-container {
+    display: grid;
+    border: 0.5em solid black;
+    border-radius: 1em;
+    grid-template-columns: repeater(3, $keyGridCellWidth);
+    grid-template-rows: repeater(3, $keyGridCellHeight);
+    grid-gap: 10px;
+
+    background-color: rgb(102, 99, 94);
+    padding: 0.5em;
+    margin: auto;
+    width: 26em;
+    height: 26em;
+    justify-content: center;
+    align-content: center;
+
+}
+.item1 {
+    grid-row: 1;
+    grid-column: 1;
+    grid-area: 1/1/2/2;
+}
+.item2 {
+    grid-row: 1;
+    grid-column: 2;   
+    grid-area: 1/2/2/3;
+}
+.item3 {
+    grid-row: 1;
+    grid-column: 3;
+    grid-area: 1/3/2/4;
+}
+.item4 {
+    grid-row: 2;
+    grid-column: 1;
+    grid-area: 2/1/3/2;
+}
+.item5 {
+    grid-row: 2;
+    grid-column: 2;
+    grid-area: 2/2/3/3;
+}
+.item6 {
+    grid-row: 2;
+    grid-column: 3;
+    grid-area: 2/3/3/4;
+}
+.item7 {
+    grid-row: 3;
+    grid-column: 1;
+    grid-area: 3/1/4/2;
+}
+.item8 {
+    grid-row: 3;
+    grid-column: 3;
+    grid-area: 3/2/4/3;
+}
+.item9 {
+    grid-row: 3;
+    grid-column: 3;
+    grid-area: 3/3/4/4;
+}
+
+/* right container */
+/*comment*/
+.grid-container2{
+    display: grid;
+    height: 26em;
+    width: 26em;
+    border: 0.5em solid black;
+    border-radius: 1em;
+    grid-template-columns: 12em 12em;
+    grid-template-rows: 5em 3em 4em 4em 5em;
+    grid-gap: 1em;
+
+    background-color: rgb(222, 217, 204);
+    padding: 0px;
+    margin: auto;
+
+}
+.grid2-item1{
+    display: inline;
+    grid-row: 1/2;
+    grid-column: 1/3;
+    //grid-area: 1/1/2/3;
+    width: 13.7em;
+    height: auto;
+
+    background-color: blue;
+    
+    margin: auto;
+    margin-top: 1em;
+    padding: 0.1em;
+    border-radius: .2em;
+    border: 0.2em solid black;
+    
+    
+}
+.grid2-item2{
+    grid-row: 3/4;
+    grid-column: 1/3;
+    //grid-area: 3/1/4/3;
+    
+}
+.grid2-item3{
+    margin: auto;
+    grid-row: 4/5;
+    grid-column: 1/2;
+    //grid-area: 4/1/5/2;
+    text-align: left;
+    width: 9.5em;
+    border-radius: 1em;
+    margin-top: 0em;
+    height: 2em;
+}
+.grid2-item4{
+    display: inline-block;
+    grid-row: 5/6;
+    grid-column: 1/2;
+    //grid-area: 5/1/6/2;
+    /*align-content: center; */
+    text-align: center;
+}
+.grid2-item5{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    //grid-area: 2/1/3/3;
+    font-size: 2em;
+    text-align: center;
+    margin: auto;
+}
+.grid2-item6{
+    grid-row: 4/6;
+    grid-column: 2/3;
+    //grid-area: 4/2/6/3;
+}
+
+/* container that includes 2 containers above */
+.bigGrid {
+    display: grid;
+    height: 40em;
+    grid-template-columns: 30em 30em;
+    grid-template-rows: 40em;
+    padding: 1em;
+}
+/*
+redundant code
+.bigGridItem1 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    //grid-area: 1/1/2/2;
+    height: 26em;
+}
+
+.bigGridItem2 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    //grid-area: 1/2/2/3;
+}
+*/
+.drum-pad {
+    background-color: rgb(102, 99, 94);
+    border-radius: 10%;
+    box-shadow: 0.2em 0.2em;
+    font-size: 2em;
+    text-align: center;
+    line-height: 3em;  
+    width: 100%;
+    height: 100%;  
+}
+#display {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 0.5em;
+    font-size: 1.5em;
+    margin: 0px;
+    line-height: 1.5em;
+    width: 15em;
+    height: 2.5em;
+    margin: auto;
+}
+/* accidentally made this twice
+.drum-pad {
+    width: 100%;
+    height: 100%;
+}
+*/
+/* CSS for changing bigGrid in respone to window resize */
+/* for big screen */
+.bigGridBigScreen {
+    display: grid;
+    grid-template-columns: 30em 30em;
+    grid-template-rows: 30em;
+    margin: 0em;
+    width: 60em;
+    grid-gap: 0em;
+    background-color: rgb(222, 217, 204);
+    margin: -4em;
+}
+.bigGridItem1BigScreen, .bigGridItem1SmallScreen {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    //grid-area: 1/1/2/2;
+    grid-gap: 0em;
+    padding: 2em;
+}
+.bigGridItem2BigScreen {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    //grid-area: 1/2/2/3;
+    margin: 0em;
+    
+    grid-gap: 0em;
+    padding-top: 2em;
+
+}
+.drumBodyBigScreen {
+    height: 32em;
+    width: 62em;
+    border: 5em solid black;
+    margin: 3em auto auto auto;
+}
+/* */
+.bigGridSmallScreen {
+    display: grid;
+    grid-template-columns: 30em;
+    grid-template-rows: 30em 30em;
+    margin: 0em;
+    width: 30em;
+    grid-gap: 0em;
+    background-color: rgb(222, 217, 204);
+    margin: -4em;
+}
+.bigGridItem2SmallScreen {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    //grid-area: 2/1/3/2;
+    margin: 0em;
+    
+    grid-gap: 0em;
+    padding-top: 2em;
+
+}
+.drumBodySmallScreen {
+    height: 62em;
+    width: 32em;
+    border: 5em solid black;
+    margin: 3em auto auto auto;
+}
+/* CSS for mute button */
+.muted {
+    display: inline;
+    font-size: 2.4em;
+    background-color: red;
+    padding: 0.4em 0.5em 0.35em 0.6em;
+    
+    margin: 0px;
+  
+}
+.on{
+    display: inline;
+    font-size: 2.4em;
+    background-color: blue;
+    padding: 0.4em 0.5em 0.35em 0.6em;
+    
+    margin: 0px;
+}
+
+#powerSection {
+    display: inline;
+}
+#powerLabel {
+    display: inline;
+    margin: 0em;
+    padding: 0.2em 0em 0.2em 0.5em;
+    font-size: 2.4em;
+}
+#instrumentDropdownMenu {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    padding: 0.2em 0em 0.2em 0.2em; 
+    margin-left: -2em;
+    border-radius: .2em;
+    width: 10em;
+    height: 2em;
+    overflow-y: "scroll";
+    border-radius: .2em;
+    border: 0.1em solid black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+/*
+#powerButton{
+    display: inline;
+    height: 3em;
+    width: 3em;
+}
+*/
+#main-container {
+    margin: auto;
+    background-color: green;
+}
+
+/* not used
+.left{
+    background-color: red;
+    width: 25em;
+    margin: 0em;
+    padding: 0em;
+}
+*/
+#buttons {
+    margin: auto;
+    background-color: rgb(222, 217, 204);
+}
+#volumeMeter{
+    padding-left: 0.5em;
+    border-radius: .2em;
+    border: 0.1em solid black;
+    font-size: 1.2em;
+    margin-top: 0em;
+    padding: 0.2em 0em 0.2em 1em; 
+    background-color: black;
+    color:white; 
+    width: 7.1em;
+}
+
+#drum-machine{
+    /*height: 32em;
+    width: 62em;
+    border: 5em solid black;
+    */
+    margin: auto;
+    
+    font-family: 'Times New Roman', Times, serif;
+
+}
+#drumMachineBody {
+
+    display: flex;
+    height: auto;
+    margin: auto;
+    margin-top: 5em;
+    padding: 0em;
+    background-color: red;
+}

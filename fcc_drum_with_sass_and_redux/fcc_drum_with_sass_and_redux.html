@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--meta below for testing slider-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <!--Bootstrap CSS link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap JS link-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="fcc_drum_with_sass_and_redux.js" type="text/babel"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+
+    <style>
+
+        p {
+            font-size: 2em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            background-color:green;
+            text-align: left;
+            line-height: 1.7em;
+        }
+        li {
+            font-size: 1em;
+            color: white;
+            background-color: black;
+            border: 0.1 black;
+            margin: 0em;
+        }
+        ul {
+            background-color: black;
+            color: black;
+            padding: 0em;
+        }
+        /*
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+        */
+        /*left container */
+        .grid-container {
+            display: grid;
+            display: grid;
+            border: 0.5em solid black;
+            border-radius: 1em;
+            grid-template-columns: 6em 6em 6em;
+            grid-template-rows: 6em 6em 6em;
+            grid-gap: 10px;
+
+            background-color: rgb(102, 99, 94);
+            padding: 0.5em;
+            margin: auto;
+            width: 26em;
+            height: 26em;
+            justify-content: center;
+            align-content: center;
+        
+        }
+        .item1 {
+            grid-area: 1/1/2/2;
+        }
+        .item2 {
+            grid-area: 1/2/2/3;
+        }
+        .item3 {
+            grid-area: 1/3/2/4;
+        }
+        .item4 {
+            grid-area: 2/1/3/2;
+        }
+        .item5 {
+            grid-area: 2/2/3/3;
+        }
+        .item6 {
+            grid-area: 2/3/3/4;
+        }
+        .item7 {
+            grid-area: 3/1/4/2;
+        }
+        .item8 {
+            grid-area: 3/2/4/3;
+        }
+        .item9 {
+            grid-area: 3/3/4/4;
+        }
+
+        /* right container */
+        .grid-container2{
+            display: grid;
+            height: 26em;
+            width: 26em;
+            border: 0.5em solid black;
+            border-radius: 1em;
+            grid-template-columns: 12em 12em;
+            grid-template-rows: 5em 3em 4em 4em 5em;
+            grid-gap: 1em;
+
+            background-color: rgb(222, 217, 204);
+            padding: 0px;
+            margin: auto;
+
+        }
+        .grid2-item1{
+            display: inline;
+            grid-area: 1/1/2/3;
+            width: 13.7em;
+            height: auto;
+
+            background-color: blue;
+            
+            margin: auto;
+            margin-top: 1em;
+            padding: 0.1em;
+            border-radius: .2em;
+            border: 0.2em solid black;
+            
+            
+        }
+        .grid2-item2{
+            grid-area: 3/1/4/3;
+            
+        }
+        .grid2-item3{
+            margin: auto;
+            grid-area: 4/1/5/2;
+            text-align: left;
+            width: 9.5em;
+            border-radius: 1em;
+            margin-top: 0em;
+            height: 2em;
+        }
+        .grid2-item4{
+            display: inline-block;
+            grid-area: 5/1/6/2;
+            /*align-content: center; */
+            text-align: center;
+        }
+        .grid2-item5{
+            grid-area: 2/1/3/3;
+            font-size: 2em;
+            text-align: center;
+            margin: auto;
+        }
+        .grid2-item6{
+            grid-area: 4/2/6/3;
+        }
+
+        /* container that includes 2 containers above */
+        .bigGrid {
+            display: grid;
+            height: 40em;
+            grid-template-columns: 30em 30em;
+            grid-template-rows: 40em;
+            padding: 1em;
+
+        }
+        .bigGridItem1 {
+            grid-area: 1/1/2/2;
+            height: 26em;
+        }
+        .bigGridItem2 {
+            grid-area: 1/2/2/3;
+        }
+        .drum-pad {
+            background-color: rgb(102, 99, 94);
+            border-radius: 10%;
+            box-shadow: 0.2em 0.2em;
+
+            font-size: 2em;
+            text-align: center;
+            line-height: 3em;
+            
+        }
+        #display {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top: 0.5em;
+            font-size: 1.5em;
+            margin: 0px;
+            line-height: 1.5em;
+            width: 15em;
+            height: 2.5em;
+            margin: auto;
+        }
+        .drum-pad {
+            width: 100%;
+            height: 100%;
+        }
+        /* CSS for changing bigGrid in respone to window resize */
+        /* for big screen */
+        .bigGridBigScreen {
+            display: grid;
+            grid-template-columns: 30em 30em;
+            grid-template-rows: 30em;
+            margin: 0em;
+            width: 60em;
+            grid-gap: 0em;
+            background-color: rgb(222, 217, 204);
+            margin: -4em;
+        }
+        .bigGridItem1BigScreen, .bigGridItem1SmallScreen {
+            grid-area: 1/1/2/2;
+            grid-gap: 0em;
+            padding: 2em;
+        }
+        .bigGridItem2BigScreen {
+            grid-area: 1/2/2/3;
+            margin: 0em;
+            
+            grid-gap: 0px;
+            padding-top: 2em;
+
+        }
+        .drumBodyBigScreen {
+            height: 32em;
+            width: 62em;
+            border: 5em solid black;
+            margin: 3em auto auto auto;
+        }
+        /* */
+        .bigGridSmallScreen {
+            display: grid;
+            grid-template-columns: 30em;
+            grid-template-rows: 30em 30em;
+            margin: 0em;
+            width: 30em;
+            grid-gap: 0em;
+            background-color: rgb(222, 217, 204);
+            margin: -4em;
+        }
+        .bigGridItem2SmallScreen {
+            grid-area: 2/1/3/2;
+            margin: 0em;
+            
+            grid-gap: 0em;
+            padding-top: 2em;
+
+        }
+        .drumBodySmallScreen {
+            height: 62em;
+            width: 32em;
+            border: 5em solid black;
+            margin: 3em auto auto auto;
+        }
+        /* CSS for mute button */
+        .muted {
+            display: inline;
+            font-size: 2.4em;
+            background-color: red;
+            padding: 0.4em 0.5em 0.35em 0.6em;
+            
+            margin: 0px;
+          
+        }
+        .on{
+            display: inline;
+            font-size: 2.4em;
+            background-color: blue;
+            padding: 0.4em 0.5em 0.35em 0.6em;
+            
+            margin: 0px;
+        }
+
+        #powerSection {
+            display: inline;
+
+        }
+        #powerLabel {
+            display: inline;
+            margin: 0em;
+            padding: 0.2em 0em 0.2em 0.5em;
+            font-size: 2.4em;
+        }
+        #instrumentDropdownMenu {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+            padding: 0.2em 0em 0.2em 0.2em; 
+            margin-left: -2em;
+            border-radius: .2em;
+            width: 10em;
+            height: 2em;
+            overflow-y: "scroll";
+            border-radius: .2em;
+            border: 0.1em solid black;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        
+        /*
+        #powerButton{
+            display: inline;
+            height: 3em;
+            width: 3em;
+        }
+        */
+        #main-container {
+            margin: auto;
+            background-color: green;
+        }
+
+        
+        .left{
+            background-color: red;
+            width: 25em;
+            margin: 0em;
+            padding: 0em;
+        }
+        #buttons {
+            margin: auto;
+            background-color: rgb(222, 217, 204);
+        }
+        #volumeMeter{
+            padding-left: 0.5em;
+            border-radius: .2em;
+            border: 0.1em solid black;
+            font-size: 1.2em;
+            margin-top: 0em;
+            padding: 0.2em 0em 0.2em 1em; 
+            background-color: black;
+            color:white; 
+            width: 7.1em;
+        }
+        
+        #drum-machine{
+            /*height: 32em;
+            width: 62em;
+            border: 5em solid black;
+            */
+            margin: auto;
+            
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+        #drumMachineBody {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: auto;
+            margin: auto;
+            margin-top: 5em;
+            padding: 0em;
+            background-color: red;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div id="drumMachineBody"></div>
+
+    <!--
+    <script type="text/babel">
+        let muteClass = "fas fa-volume-mute muted"; 
+        let volumeOnClass = "fas fa-volume-up on";
+        let qValueArr = ["Q Drum", "Q Piano", "Q Flute"];
+        let qLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3", "#"];
+        let wValueArr = ["W Drum", "W Piano", "W Flute"];
+        let wLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3", "#"];
+        let eValueArr = ["E Drum", "E Piano", "E Flute"];
+        let eLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3", "#"];
+        let aValueArr = ["A Drum", "A Piano", "A Flute"];
+        let aLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3", "#"];
+        let sValueArr = ["S Drum", "S Piano", "S Flute"];
+        let sLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3", "#"];
+        let dValueArr = ["D Drum", "D Piano", "D Flute"];
+        let dLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3", "#"];
+        let zValueArr = ["Z Drum", "Z Piano", "Z Flute"];
+        let zLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3", "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3", "#"];
+        let xValueArr = ["X Drum", "X Piano", "X Flute"];
+        let xLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3", "#"];
+        let cValueArr = ["C Drum", "C Piano", "Z Flute"];
+        let cLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3", "#"];
+        let instrumentArr = ["Drums", "Piano", "Flute"];
+
+
+        let play = function(){document.getElementById("audio").play()};
+
+
+        class DrumMachine extends React.Component {
+
+            constructor(props) {
+
+                super(props);
+
+                this.state = {
+                    power: true,
+                    instrument: instrumentArr[0],
+                    bank: 0,
+                    volumeLevel: 0.5, 
+                    volumeDisplay: 50,
+                    chord: "",
+                    displayValue: "",
+
+                    qValue: qValueArr[0], 
+                    qLink: qLinkArr[0],
+                    wValue: wValueArr[0], 
+                    wLink: wLinkArr[0],
+                    eValue: eValueArr[0], 
+                    eLink: eLinkArr[0],
+
+                    aValue: aValueArr[0], 
+                    aLink: aLinkArr[0],
+                    sValue: sValueArr[0], 
+                    sLink: sLinkArr[0],
+                    dValue: dValueArr[0], 
+                    dLink: dLinkArr[0],
+
+                    zValue: zValueArr[0], 
+                    zLink: zLinkArr[0],
+                    xValue: xValueArr[0], 
+                    xLink: xLinkArr[0],
+                    cValue: cValueArr[0], 
+                    cLink: cLinkArr[0],
+
+                    powerClass: volumeOnClass,
+
+                
+
+                    bigGrid: "",
+                    bigGridItem1: "",
+                    bigGridItem2: "",
+                    drumBody: "",
+                    color: "blue"
+                
+                }
+                this.padClick = this.padClick.bind(this);
+                //this.keyClick = this.keyClick.bind(this);
+                this.keyPressFunction = this.keyPressFunction.bind(this);
+                this.testFunction = this.testFunction.bind(this);
+                this.muteFunction = this.muteFunction.bind(this);
+                this.setVolume = this.setVolume.bind(this);
+                this.setInstrument = this.setInstrument.bind(this);
+                this.windowResizeFunction = this.windowResizeFunction.bind(this);
+
+            }
+            //Adding event listeners withcomponentDidMount
+            componentDidMount() {
+                // When the component is mounted, add your DOM listener to the "nv" elem.
+                // (The "nv" elem is assigned in the render function.)
+                document.getElementById(this.state.qValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.wValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.eValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.aValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.sValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.dValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.zValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.xValue).addEventListener("click", this.padClick);
+                document.getElementById(this.state.cValue).addEventListener("click", this.padClick);
+                //document.getElementById("powerButton").addEventListener("click", this.muteFunction );
+                
+                document.getElementById("powerSection").addEventListener("click", this.muteFunction );
+                
+                window.addEventListener("keydown", this.keyPressFunction);
+                window.addEventListener('resize', this.windowResizeFunction);
+                this.windowResizeFunction();
+            }
+            componentWillUnmount() {
+                // Make sure to remove the DOM listener when the component is unmounted.
+                //this.nv.removeEventListener("nv-enter", this.handleNvEnter);
+                document.getElementById(this.state.qValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.wValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.eValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.aValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.sValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.dValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.zValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.xValue).removeEventListener("click", this.padClick);
+                document.getElementById(this.state.cValue).removeEventListener("click", this.padClick);
+                window.removeEventListener("keydown", this.keyPressFunction);
+                window.removeEventListener("resize", this.windowResizeFunction);
+                
+                
+            }
+            windowResizeFunction(event) {
+                //alert(window.innerWidth)
+                if(window.innerWidth >= 1100){
+                    this.setState((state, props) => ({
+                        bigGrid: "bigGridBigScreen",
+                        bigGridItem1: "bigGridItem1BigScreen",
+                        bigGridItem2: "bigGridItem2BigScreen",
+                        drumBody: "drumBodyBigScreen"
+                    }));
+                } else {
+                    this.setState((state, props) => ({
+                        bigGrid: "bigGridSmallScreen",
+                        bigGridItem1: "bigGridItem1SmallScreen",
+                        bigGridItem2: "bigGridItem2SmallScreen",
+                        drumBody: "drumBodySmallScreen"
+                    }));
+                }          
+            }
+            muteFunction (event) {
+                let qElement = document.getElementById(this.state.qValue);
+                let wElement = document.getElementById(this.state.wValue);
+                let eElement = document.getElementById(this.state.eValue);
+                let aElement = document.getElementById(this.state.aValue);
+                let sElement = document.getElementById(this.state.sValue);
+                let dElement = document.getElementById(this.state.dValue);
+                let zElement = document.getElementById(this.state.zValue);
+                let xElement = document.getElementById(this.state.xValue);
+                let cElement = document.getElementById(this.state.cValue);
+                if(this.state.power){
+                    this.setState((state, props) =>({
+                        power: false,
+                        powerClass: muteClass,
+                        displayValue: "MUTED",
+                        color: "red"
+                    }));
+                } else {
+                    
+                    this.setState((state, props) =>({
+                        power: true,
+                        powerClass: volumeOnClass,
+                        displayValue: "",
+                        color: "blue"
+                    }));
+                }
+
+            }
+            setVolume (event){
+                this.setState((state, props) => ({
+                    volumeLevel: event.target.value / 100,
+                    volumeDisplay: event.target.value
+                }))
+            }
+            testFunction (event){
+                alert(this.state.eValue)
+            }          
+            padClick (event) {
+                let padClickVolume = this.state.volumeLevel;
+                if(!this.state.power) {
+                    padClickVolume = 0.0;
+                }
+                switch (event.target.id) {
+                    case (this.state.qValue):
+                    let qPadAudio = document.getElementById("Q");
+                        qPadAudio.volume = padClickVolume;
+                        qPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.qValue
+                        }))
+                        break;
+                    case (this.state.wValue):
+                        let wPadAudio = document.getElementById("W");
+                        wPadAudio.volume = padClickVolume;
+                        wPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.wValue
+                        }))
+                        break;
+                    case (this.state.eValue):  
+                        let ePadAudio = document.getElementById("E");
+                        ePadAudio.volume = padClickVolume;
+                        ePadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.eValue
+                        }))
+                        break;
+                    case (this.state.aValue):
+                        let aPadAudio = document.getElementById("A");
+                        aPadAudio.volume = padClickVolume;
+                        aPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.aValue
+                        }))
+                        break;
+                    case (this.state.sValue):
+                        let sPadAudio = document.getElementById("S");
+                        sPadAudio.volume = padClickVolume;
+                        sPadAudio.play();  
+                        this.setState((state, props) => ({
+                            displayValue: state.sValue
+                        }))
+                        break;
+                    case (this.state.dValue):
+                        let dPadAudio = document.getElementById("D");
+                        dPadAudio.volume = padClickVolume;
+                        dPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.dValue
+                        }))
+                        break;
+                    case (this.state.zValue):
+                        let zPadAudio = document.getElementById("Z");
+                        zPadAudio.volume = padClickVolume;
+                        zPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.zValue
+                        }))
+                        break;
+                    case (this.state.xValue):
+                        let xPadAudio = document.getElementById("X");
+                        xPadAudio.volume = padClickVolume;
+                        xPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.xValue
+                        }))
+                        break;
+                    case (this.state.cValue):
+                        let cPadAudio = document.getElementById("C");
+                        cPadAudio.volume = padClickVolume;
+                        cPadAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.cValue
+                        }))
+                        break;
+                }
+            }
+            keyPressFunction (event) {
+                let keyClickVolume = this.state.volumeLevel;
+                if(!this.state.power) {
+                    keyClickVolume = 0.0;
+                }
+                switch (event.keyCode){
+                    case (81):
+                        let qAudio = document.getElementById("Q");
+                        qAudio.volume = keyClickVolume;
+                        qAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.qValue
+                        }))
+                        break;
+                    case (87):    
+                        let wAudio = document.getElementById("W");
+                        wAudio.volume = keyClickVolume;
+                        wAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.wValue
+                        }))
+                        break;
+                    case (69):
+                        let eAudio = document.getElementById("E");
+                        eAudio.volume = keyClickVolume;
+                        eAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.eValue
+                        }))
+                        break;
+                    case (65):
+                        let aAudio = document.getElementById("A");
+                        aAudio.volume = keyClickVolume;
+                        aAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.aValue
+                        }))
+                        break;
+                    case (83):
+                        let sAudio = document.getElementById("S");
+                        sAudio.volume = keyClickVolume;
+                        sAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.sValue
+                        }))
+                        break;
+                    case (68):
+                        let dAudio = document.getElementById("D");
+                        dAudio.volume = keyClickVolume;
+                        dAudio.play();                       
+                        this.setState((state, props) => ({
+                            displayValue: state.dValue
+                        }))
+                        break;
+                    case (90):
+                        let zAudio = document.getElementById("Z");
+                        zAudio.volume = keyClickVolume;
+                        zAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.zValue
+                        }))
+                        break;
+                    case (88):
+                        let xAudio = document.getElementById("X");
+                        xAudio.volume = keyClickVolume;
+                        xAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.xValue
+                        }))
+                        break;
+                    case (67):
+                        let cAudio = document.getElementById("C");
+                        cAudio.volume = keyClickVolume;
+                        cAudio.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.cValue
+                        }))
+                        break;
+                }
+                
+            }
+            
+            setInstrument (event) {
+                let instrumentIndex = 0;
+                switch(event.target.id){
+                    case("drums"):
+                        instrumentIndex = 0;
+                        break;
+                    case("piano"):
+                        instrumentIndex = 1;
+                        break;
+                    case("flute"):
+                        instrumentIndex = 2;
+                        break;
+                }
+                this.setState((state,props) =>({
+                    instrument: instrumentArr[instrumentIndex],
+                    qValue: qValueArr[instrumentIndex],
+                    qLink: qLinkArr[instrumentIndex],
+                    wValue: wValueArr[instrumentIndex], 
+                    wLink: wLinkArr[instrumentIndex],
+                    eValue: eValueArr[instrumentIndex], 
+                    eLink: eLinkArr[instrumentIndex],
+
+                    aValue: aValueArr[instrumentIndex], 
+                    aLink: aLinkArr[instrumentIndex],
+                    sValue: sValueArr[instrumentIndex], 
+                    sLink: sLinkArr[instrumentIndex],
+                    dValue: dValueArr[instrumentIndex], 
+                    dLink: dLinkArr[instrumentIndex],
+
+                    zValue: zValueArr[instrumentIndex], 
+                    zLink: zLinkArr[instrumentIndex],
+                    xValue: xValueArr[instrumentIndex], 
+                    xLink: xLinkArr[instrumentIndex],
+                    cValue: cValueArr[instrumentIndex], 
+                    cLink: cLinkArr[instrumentIndex],
+
+                }));
+            }
+            
+            render() {
+
+                return (
+                    
+                    <div id="drum-machine" className={this.state.drumBody} /*class="container" style={this.state.mainContainer}*/ > 
+                        <div class={this.state.bigGrid}>
+                            <div class={this.state.bigGridItem1}>
+                                <div id="buttons" class="grid-container" >
+                                    <div class="item1 drum-pad" id={this.state.qValue} >
+                                        <audio class="clip" id="Q" src={this.state.qLink}></audio>
+                                        Q
+                                    </div>
+                                    <div class="item2 drum-pad" id={this.state.wValue}>
+                                        <audio class="clip" id="W" src={this.state.wLink}></audio>  
+                                        W                            
+                                    </div>
+                                    <div class="item3 drum-pad" id={this.state.eValue}>
+                                        <audio class="clip" id="E" src={this.state.eLink}></audio>        
+                                        E                      
+                                    </div>
+                                    <div class="item4 drum-pad" id={this.state.aValue}>
+                                        <audio class="clip" id="A" src={this.state.aLink}></audio>    
+                                        A                         
+                                    </div>
+                                    <div class="item5 drum-pad" id={this.state.sValue}>
+                                        <audio class="clip" id="S" src={this.state.sLink}></audio>       
+                                        S                       
+                                    </div>
+                                    <div class="item6 drum-pad" id={this.state.dValue}>
+                                        <audio class="clip" id="D" src={this.state.dLink}></audio>         
+                                        D                      
+                                    </div>
+                                    <div class="item7 drum-pad" id={this.state.zValue}>
+                                        <audio class="clip" id="Z" src={this.state.zLink}></audio>   
+                                        Z                           
+                                    </div>
+                                    <div class="item8 drum-pad" id={this.state.xValue}>
+                                        <audio class="clip" id="X" src={this.state.xLink}></audio>          
+                                        X                    
+                                    </div>
+                                    <div class="item9 drum-pad" id={this.state.cValue}>
+                                        <audio class="clip" id="C" src={this.state.cLink}></audio>          
+                                        C                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class={this.state.bigGridItem2}>
+                                <div id="controls" class="grid-container2">   
+                                    <div id="powerSection" class="grid2-item1" style={{backgroundColor: this.state.color}}>
+                                        <h2 id="powerLabel" style={{backgroundColor: this.state.color}}>Power</h2>
+                                        <div id="powerButton" class={this.state.powerClass} />                                       
+                                    </div>
+                                    <div class="grid2-item2">
+                                        <div id="display">{this.state.displayValue}</div>
+                                    </div>
+                                        <div class="grid2-item3">
+                                        <div id="volumeMeter">Volume:&nbsp;{this.state.volumeDisplay}</div>
+                                    </div>
+                                    <div class="grid2-item4">
+                                        <input id="volumeControl" type="range" min="0" max="100" step="1" onInput={this.setVolume} onChange={this.setVolume}></input>
+                                    </div>
+                                    <div class="grid2-item5">
+                                        <div id="currentInstrument" class="grid2-item2">{this.state.instrument}</div>
+                                    </div>
+                                    <div class="grid2-item6">
+                                        <div class="container" >
+                                            <div class="row" >
+                                                <div class="col-lg-12" >
+                                                    <div class="btn-group" >
+                                                        <button id="instrumentDropdownMenu" type="button" class="btn btn-default dropdown-toggle border-0" data-toggle="dropdown" style={{fontSize: "1.2em"}}/*style={{width: "10em", marginLeft: "-1em" }} */>Scrollable Menu <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu scrollable-menu" role="menu" style={{width: "12em",height: "7em", overflowY: "scroll", backgroundColor: "black", marginTop: "-0.1em"}}>
+                                                            <li><a class="dropdown-item" id="drums" onClick={this.setInstrument}>Drums</a></li>
+                                                            <li><a class="dropdown-item" id="piano" onClick={this.setInstrument}>Piano</a></li>
+                                                            <li><a class="dropdown-item" id="flute" onClick={this.setInstrument}>Flute</a></li>
+                                                            {/* code below is a placeholder*/}
+                                                            <li><a class="dropdown-item" id="drums" onClick={this.setInstrument}>Drums</a></li>
+                                                            <li><a class="dropdown-item" id="piano" onClick={this.setInstrument}>Piano</a></li>
+                                                            <li><a class="dropdown-item" id="flute" onClick={this.setInstrument}>Flute</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                  
+                                </div>                          
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                );
+
+            }
+
+        }
+        
+        ReactDOM.render(<DrumMachine />, document.getElementById('drumMachineBody'))
+    </script>
+    -->
+  </body>
+</html>
