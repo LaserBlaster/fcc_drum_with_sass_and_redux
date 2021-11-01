@@ -391,7 +391,7 @@ class DrumMachine extends React.Component {
                                 <audio class="clip" id="W" src={this.state.wLink}></audio>  
                                 W                            
                             </div>
-                            <div class="item3 drum-pad" id={this.state.eValue}>1
+                            <div class="item3 drum-pad" id={this.state.eValue}>
                                 <audio class="clip" id="E" src={this.state.eLink}></audio>        
                                 E                      
                             </div>
