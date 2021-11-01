@@ -379,7 +379,7 @@ class DrumMachine extends React.Component {
 
         return (
             
-            <div id="drum-machine" className={this.state.drumBody} /*class="container" style={this.state.mainContainer}*/ > 
+            <div id="drum-machine" /*className={this.state.drumBody} */ /*class="container" style={this.state.mainContainer}*/ > 
                 <div class={this.state.bigGrid}>
                     <div class={this.state.bigGridItem1}>
                         <div id="buttons" class="key-grid-container" >

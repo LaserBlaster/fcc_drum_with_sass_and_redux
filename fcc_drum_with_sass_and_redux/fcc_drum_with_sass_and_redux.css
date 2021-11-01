@@ -36,9 +36,9 @@ ul {
   -ms-grid-rows:  1fr 1fr 1fr;
       grid-template-rows:  1fr 1fr 1fr;
   background-color: #66635e;
-  padding: 3em;
-  width: 26em;
-  height: 26em;
+  width: 90%;
+  height: 90%;
+  padding: 5%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -49,6 +49,7 @@ ul {
 #buttons {
   margin: auto;
   background-color: #ded9cc;
+  margin-top: 5%;
 }
 
 .item1 {
@@ -221,7 +222,7 @@ ul {
 .bigGrid {
   display: -ms-grid;
   display: grid;
-  height: 40em;
+  height: 30em;
   -ms-grid-columns: 30em 30em;
       grid-template-columns: 30em 30em;
   -ms-grid-rows: 40em;
@@ -247,13 +248,14 @@ redundant code
 .drum-pad {
   background-color: #66635e;
   border-radius: 10%;
-  -webkit-box-shadow: 0.2em 0.2em;
-          box-shadow: 0.2em 0.2em;
+  border: 0.1em solid black;
   font-size: 2em;
   text-align: center;
-  line-height: 3em;
+  line-height: 2em;
   width: 90%;
   height: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 #display {
@@ -280,15 +282,14 @@ redundant code
 .bigGridBigScreen {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30em 30em;
-      grid-template-columns: 30em 30em;
-  -ms-grid-rows: 30em;
-      grid-template-rows: 30em;
-  margin: 0em;
-  width: 60em;
+  -ms-grid-columns: 20em 20em;
+      grid-template-columns: 20em 20em;
+  -ms-grid-rows: 20em;
+      grid-template-rows: 20em;
+  margin: auto;
   grid-gap: 0em;
   background-color: #ded9cc;
-  margin: -4em;
+  border: 5px solid yellow;
 }
 
 .bigGridItem1BigScreen, .bigGridItem1SmallScreen {
@@ -299,7 +300,7 @@ redundant code
   -ms-grid-column-span: 1;
   grid-column: 1/2;
   grid-gap: 0em;
-  padding: 2em;
+  border: 5px solid orange;
 }
 
 .bigGridItem2BigScreen {
@@ -325,12 +326,11 @@ redundant code
 .bigGridSmallScreen {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30em;
-      grid-template-columns: 30em;
-  -ms-grid-rows: 30em 30em;
-      grid-template-rows: 30em 30em;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
   margin: 0em;
-  width: 30em;
   grid-gap: 0em;
   background-color: #ded9cc;
   margin: -4em;
@@ -345,7 +345,6 @@ redundant code
   grid-column: 1/2;
   margin: 0em;
   grid-gap: 0em;
-  padding-top: 2em;
 }
 
 .drumBodySmallScreen {
