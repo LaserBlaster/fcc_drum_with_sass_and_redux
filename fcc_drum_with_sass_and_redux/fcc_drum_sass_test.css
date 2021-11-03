@@ -1,42 +1,7 @@
-.bigGridBigScreen {
-  display: -ms-grid;
-  display: grid;
-  height: 30em;
-  -ms-grid-columns: 30em 30em;
-      grid-template-columns: 30em 30em;
-  -ms-grid-rows: 30em;
-      grid-template-rows: 30em;
-  margin: auto;
-  grid-gap: 0em;
-  background-color: orange;
-  border: 5px solid brown;
-}
-
-.bigGridSmallScreen {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 20em;
-      grid-template-columns: 20em;
-  -ms-grid-rows: 20em 20em;
-      grid-template-rows: 20em 20em;
-  margin: auto;
-  grid-gap: 0em;
-  background-color: #ded9cc;
-  margin-top: -4em;
-  border: 1em solid brown;
-}
-
-.keys {
-  background-color: #66635e;
-  color: black;
+p {
   font-size: 2em;
-  line-height: 2em;
-  border-radius: 10%;
-  border: 0.1em solid black;
-  height: 90%;
-  width: 90%;
-  margin: 5% 0% 0% 5%;
   text-align: center;
+  color: red;
 }
 
 h2 {
@@ -60,6 +25,7 @@ ul {
   padding: 0em;
 }
 
+/*left container */
 .key-grid-container {
   display: -ms-grid;
   display: grid;
@@ -69,7 +35,7 @@ ul {
       grid-template-columns:  1fr 1fr 1fr;
   -ms-grid-rows:  1fr 1fr 1fr;
       grid-template-rows:  1fr 1fr 1fr;
-  background-color: orange;
+  background-color: #66635e;
   width: 90%;
   height: 90%;
   padding: 5%;
@@ -78,23 +44,6 @@ ul {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-}
-
-.controls-grid-container {
-  display: -ms-grid;
-  display: grid;
-  border: 0.5em solid black;
-  border-radius: 1em;
-  width: 90%;
-  height: 90%;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 5fr 3fr 4fr 4fr 5fr;
-      grid-template-rows: 5fr 3fr 4fr 4fr 5fr;
-  grid-gap: 1fr;
-  background-color: green;
-  padding: 5%;
-  margin: 5% 0% 0% 5%;
 }
 
 #buttons {
@@ -210,6 +159,23 @@ ul {
 
 /* right container */
 /*comment*/
+.controls-grid-container {
+  display: -ms-grid;
+  display: grid;
+  height: 26em;
+  width: 26em;
+  border: 0.5em solid black;
+  border-radius: 1em;
+  -ms-grid-columns: 12em 12em;
+      grid-template-columns: 12em 12em;
+  -ms-grid-rows: 5em 3em 4em 4em 5em;
+      grid-template-rows: 5em 3em 4em 4em 5em;
+  grid-gap: 1em;
+  background-color: #ded9cc;
+  padding: 0px;
+  margin: auto;
+}
+
 .grid2-item1 {
   display: inline;
   -ms-grid-row: 1;
@@ -219,14 +185,13 @@ ul {
   -ms-grid-column-span: 2;
   grid-column: 1/3;
   width: 13.7em;
-  height: 60%;
+  height: auto;
   background-color: blue;
   margin: auto;
-  margin-top: 0em;
+  margin-top: 1em;
   padding: 0.1em;
   border-radius: .2em;
   border: 0.2em solid black;
-  width: 50%;
 }
 
 .grid2-item2 {
@@ -287,6 +252,17 @@ ul {
 }
 
 /* container that includes 2 containers above */
+.bigGrid {
+  display: -ms-grid;
+  display: grid;
+  height: 30em;
+  -ms-grid-columns: 30em 30em;
+      grid-template-columns: 30em 30em;
+  -ms-grid-rows: 40em;
+      grid-template-rows: 40em;
+  padding: 1em;
+}
+
 /*
 redundant code
 .bigGridItem1 {
@@ -295,13 +271,25 @@ redundant code
     //grid-area: 1/1/2/2;
     height: 26em;
 }
-
 .bigGridItem2 {
     grid-row: 1/2;
     grid-column: 2/3;
     //grid-area: 1/2/2/3;
 }
 */
+.drum-pad {
+  background-color: #66635e;
+  border-radius: 10%;
+  border: 0.1em solid black;
+  font-size: 2em;
+  text-align: center;
+  line-height: 2em;
+  width: 90%;
+  height: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
 #display {
   background-color: black;
   color: white;
@@ -310,7 +298,7 @@ redundant code
   font-size: 1.5em;
   margin: 0px;
   line-height: 1.5em;
-  width: 8em;
+  width: 15em;
   height: 2.5em;
   margin: auto;
 }
@@ -323,7 +311,20 @@ redundant code
 */
 /* CSS for changing bigGrid in respone to window resize */
 /* for big screen */
-.bigGridItem1BigScreen {
+.bigGridBigScreen {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20em 20em;
+      grid-template-columns: 20em 20em;
+  -ms-grid-rows: 20em;
+      grid-template-rows: 20em;
+  margin: auto;
+  grid-gap: 0em;
+  background-color: #ded9cc;
+  border: 5px solid yellow;
+}
+
+.bigGridItem1BigScreen, .bigGridItem1SmallScreen {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
@@ -331,7 +332,7 @@ redundant code
   -ms-grid-column-span: 1;
   grid-column: 1/2;
   grid-gap: 0em;
-  border: 5px solid purple;
+  border: 5px solid orange;
 }
 
 .bigGridItem2BigScreen {
@@ -341,20 +342,30 @@ redundant code
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
-  border: 5px solid green;
+  margin: 0em;
+  grid-gap: 0em;
+  padding-top: 2em;
 }
 
-.bigGridItem1SmallScreen {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
+.drumBodyBigScreen {
+  height: 32em;
+  width: 62em;
+  border: 5em solid black;
+  margin: 3em auto auto auto;
+}
+
+/* */
+.bigGridSmallScreen {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  margin: 0em;
   grid-gap: 0em;
-  border: 5px solid purple;
-  width: 100%;
-  height: 100%;
+  background-color: #ded9cc;
+  margin: -4em;
 }
 
 .bigGridItem2SmallScreen {
@@ -366,48 +377,41 @@ redundant code
   grid-column: 1/2;
   margin: 0em;
   grid-gap: 0em;
-  width: 100%;
-  height: 100%;
 }
 
-/*
-.drumBodyBigScreen {
-    height: 50em;
-    width: 62em;
-    border: 5em solid black;
-    margin: 3em auto auto auto;
-    background: brown;
-}
 .drumBodySmallScreen {
-    height: 62em;
-    width: 32em;
-    border: 5em solid black;
-    margin: 3em auto auto auto;
+  height: 62em;
+  width: 32em;
+  border: 5em solid black;
+  margin: 3em auto auto auto;
 }
-*/
+
 /* CSS for mute button */
 .muted {
   display: inline;
-  font-size: 1em;
+  font-size: 2.4em;
   background-color: red;
+  padding: 0.4em 0.5em 0.35em 0.6em;
   margin: 0px;
 }
 
 .on {
   display: inline;
+  font-size: 2.4em;
   background-color: blue;
+  padding: 0.4em 0.5em 0.35em 0.6em;
   margin: 0px;
 }
 
 #powerSection {
   display: inline;
-  font-size: 1em;
 }
 
 #powerLabel {
   display: inline;
   margin: 0em;
-  font-size: 1em;
+  padding: 0.2em 0em 0.2em 0.5em;
+  font-size: 2.4em;
 }
 
 #instrumentDropdownMenu {
@@ -419,7 +423,7 @@ redundant code
   padding: 0.2em 0em 0.2em 0.2em;
   margin-left: -2em;
   border-radius: .2em;
-  width: 6em;
+  width: 10em;
   height: 2em;
   overflow-y: "scroll";
   border-radius: .2em;
@@ -479,4 +483,4 @@ redundant code
   padding: 0em;
   background-color: red;
 }
-/*# sourceMappingURL=fcc_drum_with_sass_and_redux.css.map */
+/*# sourceMappingURL=fcc_drum_sass_test.css.map */

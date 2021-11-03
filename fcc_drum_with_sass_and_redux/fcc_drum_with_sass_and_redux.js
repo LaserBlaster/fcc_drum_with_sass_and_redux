@@ -383,39 +383,39 @@ class DrumMachine extends React.Component {
                 <div class={this.state.bigGrid}>
                     <div class={this.state.bigGridItem1}>
                         <div id="buttons" class="key-grid-container" >
-                            <div class="item1 drum-pad" id={this.state.qValue} >
+                            <div class="item1 keys" id={this.state.qValue} >
                                 <audio class="clip" id="Q" src={this.state.qLink}></audio>
                                 Q
                             </div>
-                            <div class="item2 drum-pad" id={this.state.wValue}>
+                            <div class="item2 keys" id={this.state.wValue}>
                                 <audio class="clip" id="W" src={this.state.wLink}></audio>  
                                 W                            
                             </div>
-                            <div class="item3 drum-pad" id={this.state.eValue}>
+                            <div class="item3 keys" id={this.state.eValue}>
                                 <audio class="clip" id="E" src={this.state.eLink}></audio>        
                                 E                      
                             </div>
-                            <div class="item4 drum-pad" id={this.state.aValue}>
+                            <div class="item4 keys" id={this.state.aValue}>
                                 <audio class="clip" id="A" src={this.state.aLink}></audio>    
                                 A                         
                             </div>
-                            <div class="item5 drum-pad" id={this.state.sValue}>
+                            <div class="item5 keys" id={this.state.sValue}>
                                 <audio class="clip" id="S" src={this.state.sLink}></audio>       
                                 S                       
                             </div>
-                            <div class="item6 drum-pad" id={this.state.dValue}>
+                            <div class="item6 keys" id={this.state.dValue}>
                                 <audio class="clip" id="D" src={this.state.dLink}></audio>         
                                 D                      
                             </div>
-                            <div class="item7 drum-pad" id={this.state.zValue}>
+                            <div class="item7 keys" id={this.state.zValue}>
                                 <audio class="clip" id="Z" src={this.state.zLink}></audio>   
                                 Z                           
                             </div>
-                            <div class="item8 drum-pad" id={this.state.xValue}>
+                            <div class="item8 keys" id={this.state.xValue}>
                                 <audio class="clip" id="X" src={this.state.xLink}></audio>          
                                 X                    
                             </div>
-                            <div class="item9 drum-pad" id={this.state.cValue}>
+                            <div class="item9 keys" id={this.state.cValue}>
                                 <audio class="clip" id="C" src={this.state.cLink}></audio>          
                                 C                   
                             </div>
@@ -430,7 +430,7 @@ class DrumMachine extends React.Component {
                             <div class="grid2-item2">
                                 <div id="display">{this.state.displayValue}</div>
                             </div>
-                                <div class="grid2-item3">
+                            <div class="grid2-item3">
                                 <div id="volumeMeter">Volume:&nbsp;{this.state.volumeDisplay}</div>
                             </div>
                             <div class="grid2-item4">

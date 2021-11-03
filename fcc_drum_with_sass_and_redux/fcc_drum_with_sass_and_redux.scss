@@ -1,8 +1,34 @@
-$keyGridCellHeight : 1fr;
-$keyGridCellWidth : 1fr;
-$keyGridContainerHeight: 26em;
-$keyGridContainerWidth: 26em;
-$keyLetterSize: 2em;
+
+$key-grid-cell-height : 1fr;
+$key-grid-cell-width : 1fr;
+// style variable for the keys
+$keys-bg-color: rgb(102, 99, 94);
+$keys-font-color: black;
+$keys-font-size: 2em;
+$keys-line-height: 2em;
+$keys-border-radius: 10%;
+$keys-border: 0.1em solid black;
+$keys-height: 90%;
+$keys-width: $keys-height;
+$keys-margin: 5% 0% 0% 5%;
+//style variables for the items in the bigGrid container. bgi in these variable names is short for big grid container items
+$bgci-height: 90%;
+$bgci-width: 90%;
+
+// style variables for the power button section
+$power-font-size: 1.5em;
+$power-on-bg-color: blue;
+$power-off-bg-color: red;
+$power-width: 50%;
+$power-height: 50%;
+$power-border: 
+
+
+//
+$key-grid-container-height: 26em;
+$key-grid-container-width: 26em;
+$key-letter-size: 2em;
+$key-line-height: $key-letter-size;
 
 @function repeater($numOfRepeats, $valueToRepeat){
     $list: "";
@@ -12,10 +38,43 @@ $keyLetterSize: 2em;
     @return unquote($list);
 }
 
-p {
-    font-size: 2em;
+// style for outer grid container
+.bigGridBigScreen {
+    display: grid;
+    height: 30em;
+    grid-template-columns: 30em 30em;
+    grid-template-rows: 30em;
+    margin: auto;
+    //width: 60em;
+    grid-gap: 0em;
+    background-color: orange;
+    //margin: -4em;
+    border: 5px solid brown;
+}
+.bigGridSmallScreen {
+    display: grid;
+    grid-template-columns: 20em;
+    grid-template-rows: 20em 20em;
+    margin: auto;
+
+    grid-gap: 0em;
+    background-color: rgb(222, 217, 204);
+    margin-top: -4em;
+    border: 1em solid brown;
+}
+// keys class sets properties to the individual keys
+.keys {
+    //display: inline;
+    background-color: $keys-bg-color;
+    color: $keys-font-color;
+    font-size: $keys-font-size;
+    line-height: $keys-line-height;
+    border-radius: $keys-border-radius;
+    border: $keys-border;
+    height: $keys-height;
+    width: $keys-width;
+    margin: $keys-margin;
     text-align: center;
-    color: red;
 }
 h2 {
     font-size: 1.5em;
@@ -23,6 +82,7 @@ h2 {
     text-align: left;
     line-height: 1.7em;
 }
+// li styles the list itms in the dropdown menu
 li {
     font-size: 1em;
     color: white;
@@ -36,25 +96,42 @@ ul {
     padding: 0em;
 }
 
-/*left container */
+// style for items in the big-grid-container
+
 .key-grid-container {
     display: grid;
     border: 0.5em solid black;
     border-radius: 1em;
-    grid-template-columns: repeater(3, $keyGridCellWidth);
-    grid-template-rows: repeater(3, $keyGridCellHeight);
-
-    background-color: rgb(102, 99, 94);
-    //padding: 3em;
-    //margin: auto;
+    grid-template-columns: repeater(3, $key-grid-cell-width);
+    grid-template-rows: repeater(3, $key-grid-cell-height);
+    //background-color: rgb(102, 99, 94);
+    background-color: orange;
     width: 90%;
     height: 90%;
     padding: 5%;
     justify-content: center;
     align-content: center;
-    //grid-gap: 0.2em;
-
 }
+.controls-grid-container{
+    display: grid;
+    //height: 26em;
+    //width: 26em;
+    border: 0.5em solid black;
+    border-radius: 1em;
+    width: 90%;
+    height: 90%;
+    grid-template-columns: 1fr 1fr;//12em 12em;
+    grid-template-rows: 5fr 3fr 4fr 4fr 5fr;//5em 3em 4em 4em 5em;
+    grid-gap: 1fr;
+
+    //background-color: rgb(222, 217, 204);
+    background-color: green;
+    padding: 5%;
+    margin: 5% 0% 0% 5%;
+}
+
+//}
+//
 #buttons {
     margin: auto;
     background-color: rgb(222, 217, 204);
@@ -109,38 +186,24 @@ ul {
 }
 /* right container */
 /*comment*/
-.controls-grid-container{
-    display: grid;
-    height: 26em;
-    width: 26em;
-    border: 0.5em solid black;
-    border-radius: 1em;
-    grid-template-columns: 12em 12em;
-    grid-template-rows: 5em 3em 4em 4em 5em;
-    grid-gap: 1em;
 
-    background-color: rgb(222, 217, 204);
-    padding: 0px;
-    margin: auto;
-
-}
 .grid2-item1{
     display: inline;
     grid-row: 1/2;
     grid-column: 1/3;
     //grid-area: 1/1/2/3;
     width: 13.7em;
-    height: auto;
+    height: 60%;
 
     background-color: blue;
     
     margin: auto;
-    margin-top: 1em;
+    //margin-top: 1em;
+    margin-top: 0em;
     padding: 0.1em;
     border-radius: .2em;
-    border: 0.2em solid black;
-    
-    
+    border: 0.2em solid black; 
+    width: 50%;
 }
 .grid2-item2{
     grid-row: 3/4;
@@ -182,13 +245,7 @@ ul {
 }
 
 /* container that includes 2 containers above */
-.bigGrid {
-    display: grid;
-    height: 30em;
-    grid-template-columns: 30em 30em;
-    grid-template-rows: 40em;
-    padding: 1em;
-}
+
 /*
 redundant code
 .bigGridItem1 {
@@ -204,19 +261,7 @@ redundant code
     //grid-area: 1/2/2/3;
 }
 */
-.drum-pad {
-    background-color: rgb(102, 99, 94);
-    border-radius: 10%;
-    border: 0.1em solid black;
-    //box-shadow: 0.2em 0.2em;
-    font-size: 2em;
-    text-align: center;
-    line-height: 2em;  
-    width: 90%;
-    height: 90%;  
-    margin-top: 5%;
-    margin-left: 5%;
-}
+
 #display {
     background-color: black;
     color: white;
@@ -225,7 +270,7 @@ redundant code
     font-size: 1.5em;
     margin: 0px;
     line-height: 1.5em;
-    width: 15em;
+    width: 8em;
     height: 2.5em;
     margin: auto;
 }
@@ -237,53 +282,29 @@ redundant code
 */
 /* CSS for changing bigGrid in respone to window resize */
 /* for big screen */
-.bigGridBigScreen {
-    display: grid;
-    grid-template-columns: 20em 20em;
-    grid-template-rows: 20em;
-    margin: auto;
-    //width: 60em;
-    grid-gap: 0em;
-    background-color: rgb(222, 217, 204);
-    //margin: -4em;
-    border: 5px solid yellow;
 
-    
-}
-.bigGridItem1BigScreen, .bigGridItem1SmallScreen {
+.bigGridItem1BigScreen{
     grid-row: 1/2;
     grid-column: 1/2;
     //grid-area: 1/1/2/2;
     grid-gap: 0em;
-    border: 5px solid orange;
+    border: 5px solid purple;
     //padding: 0.5em;
 }
 .bigGridItem2BigScreen {
     grid-row: 1/2;
     grid-column: 2/3;
-    //grid-area: 1/2/2/3;
-    margin: 0em;
-    
-    grid-gap: 0em;
-    padding-top: 2em;
-
+    border: 5px solid green;
 }
-.drumBodyBigScreen {
-    height: 32em;
-    width: 62em;
-    border: 5em solid black;
-    margin: 3em auto auto auto;
-}
-/* */
-.bigGridSmallScreen {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto;
-    margin: 0em;
-    //width: 30em;
+.bigGridItem1SmallScreen {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    //grid-area: 1/1/2/2;
     grid-gap: 0em;
-    background-color: rgb(222, 217, 204);
-    margin: -4em;
+    border: 5px solid purple;
+    width: 100%;
+    height: 100%;
+    //padding: 0.5em;
 }
 .bigGridItem2SmallScreen {
     grid-row: 2/3;
@@ -293,7 +314,18 @@ redundant code
     
     grid-gap: 0em;
     //padding-top: 2em;
+    width: 100%;
+    height: 100%;
+}
 
+// drumBody is not referenced within the js body.
+/*
+.drumBodyBigScreen {
+    height: 50em;
+    width: 62em;
+    border: 5em solid black;
+    margin: 3em auto auto auto;
+    background: brown;
 }
 .drumBodySmallScreen {
     height: 62em;
@@ -301,34 +333,39 @@ redundant code
     border: 5em solid black;
     margin: 3em auto auto auto;
 }
+*/
+
 /* CSS for mute button */
 .muted {
     display: inline;
-    font-size: 2.4em;
-    background-color: red;
-    padding: 0.4em 0.5em 0.35em 0.6em;
-    
+    font-size: 1em;
+    background-color: $power-off-bg-color;
+    //padding: 0.4em 0.5em 0.35em 0.6em;
     margin: 0px;
-  
 }
 .on{
     display: inline;
-    font-size: 2.4em;
-    background-color: blue;
-    padding: 0.4em 0.5em 0.35em 0.6em;
-    
+    //font-size: 1em;
+    background-color: $power-on-bg-color;
+    //padding: 0.4em 0.5em 0.35em 0.6em; 
     margin: 0px;
 }
 
 #powerSection {
     display: inline;
+    font-size: 1em;
+    font-size: $power-font-size;
+    
 }
 #powerLabel {
     display: inline;
     margin: 0em;
-    padding: 0.2em 0em 0.2em 0.5em;
-    font-size: 2.4em;
+    //padding: 0.2em 0em 0.2em 0.5em;
+    font-size: 1em;
 }
+
+
+// CSS for intrument dropdown selection menu
 #instrumentDropdownMenu {
     background-color: black;
     color: white;
@@ -338,7 +375,7 @@ redundant code
     padding: 0.2em 0em 0.2em 0.2em; 
     margin-left: -2em;
     border-radius: .2em;
-    width: 10em;
+    width: 6em;
     height: 2em;
     overflow-y: "scroll";
     border-radius: .2em;
